@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
-  constructor() { }
+  result: string = '';
+
+  constructor(
+    private http: HttpClient
+  ) { }
 
   ngOnInit(): void {
+    this.http.get<any>(`/users`).subscribe(result => {
+      console.log(result);
+      this.result = result;
+    });
   }
+
+
 
 }
