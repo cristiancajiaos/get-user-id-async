@@ -1,6 +1,5 @@
 import { User } from './../interfaces/user';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user/user.service';
 
@@ -11,24 +10,8 @@ import { UserService } from '../user/user.service';
 })
 export class LayoutComponent implements OnInit {
 
-  result: User[] = [];
-
-
-  users$: Observable<User[]>;
-  user: Observable<User>;
-
-  constructor(
-    private userService: UserService
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.users$ = this.userService.currentUsers;
-    this.userService.getUsers();
-
-    this.user = this.userService.currentUser;
-    this.userService.getUserById('1');
   }
-
-
-
 }

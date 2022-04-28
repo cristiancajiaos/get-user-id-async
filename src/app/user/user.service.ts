@@ -17,6 +17,7 @@ export class UserService {
   ) { }
 
   getUsers(): void {
+    console.log('getUsers()');
     this.http.get<User[]>(`/users`).subscribe(users => {
       console.log(users);
       this.currentUsers.next(users);
@@ -25,7 +26,6 @@ export class UserService {
 
   getUserById(id: string): void {
     this.http.get<User>(`/users/${id}`).subscribe(user => {
-      console.log(user);
       this.currentUser.next(user);
     });
   }
