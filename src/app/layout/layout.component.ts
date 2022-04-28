@@ -13,7 +13,9 @@ export class LayoutComponent implements OnInit {
 
   result: User[] = [];
 
+
   users$: Observable<User[]>;
+  user: Observable<User>;
 
   constructor(
     private userService: UserService
@@ -22,6 +24,9 @@ export class LayoutComponent implements OnInit {
   ngOnInit(): void {
     this.users$ = this.userService.currentUsers;
     this.userService.getUsers();
+
+    this.user = this.userService.currentUser;
+    this.userService.getUserById('1');
   }
 
 
