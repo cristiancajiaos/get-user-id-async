@@ -1,6 +1,7 @@
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { User } from '../interfaces/user';
 
 @Component({
   selector: 'app-layout',
@@ -9,14 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
-  result: string = '';
+  result: User[] = [];
 
   constructor(
     private http: HttpClient
   ) { }
 
   ngOnInit(): void {
-    this.http.get<any>(`/users`).subscribe(result => {
+    this.http.get<User[]>(`/users`).subscribe(result => {
       console.log(result);
       this.result = result;
     });
