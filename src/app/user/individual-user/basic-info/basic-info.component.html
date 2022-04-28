@@ -1,0 +1,15 @@
+<div class="card" *ngIf="user$ | async as user; else loading">
+  <div class="card-body">
+    <h5>Basic Info</h5>
+    <strong>ID:</strong> {{user.id}} <br/>
+    <strong>Name: </strong> {{user.name}} <br/>
+    <strong>Username: </strong> {{user.username}} <br/>
+    <strong>Email:</strong> {{user.email}} <br/>
+    <strong>Phone: </strong> {{user.phone}} <br/>
+    <strong>Website: </strong> {{user.website}} <br/>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>

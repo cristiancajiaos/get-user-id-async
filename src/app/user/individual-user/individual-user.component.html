@@ -1,5 +1,15 @@
-<div *ngIf="user$ | async as user; else loading">
-  {{user | json}}
+<div *ngIf="(user$ | async) as user; else loading">
+  <div class="row">
+    <div class="col-12 col-lg-4">
+      <app-basic-info></app-basic-info>
+    </div>
+    <div class="col-12 col-lg-4">
+      <app-address></app-address>
+    </div>
+    <div class="col-12 col-lg-4">
+      <app-company></app-company>
+    </div>
+  </div>
 </div>
 
 <ng-template #loading>
